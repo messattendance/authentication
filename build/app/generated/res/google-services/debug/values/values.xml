@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">932494920430-jsdtmuspho50hul2n4mqc9eo383gvbl2.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://messattendance-fc208-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+    <string name="gcm_defaultSenderId" translatable="false">932494920430</string>
+    <string name="google_api_key" translatable="false">AIzaSyCyb4-jrqOgbnQWk7Mm3uUikclD8bhjWzk</string>
+    <string name="google_app_id" translatable="false">1:932494920430:android:c0eaf1a444a96021d181ff</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCyb4-jrqOgbnQWk7Mm3uUikclD8bhjWzk</string>
+    <string name="google_storage_bucket" translatable="false">messattendance-fc208.appspot.com</string>
+    <string name="project_id" translatable="false">messattendance-fc208</string>
+</resources>
