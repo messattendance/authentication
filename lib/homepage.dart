@@ -19,12 +19,12 @@ class _HomepageState extends State<Homepage> {
   String status2 = '';
 
   @override
-  void initstate() {
-    super.initState();
+  void initState() {
     show();
+    super.initState();
   }
 
-  show() async {
+  void show() async {
     final _auth = FirebaseAuth.instance;
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     final uid = _auth.currentUser?.uid;
@@ -114,14 +114,21 @@ class _HomepageState extends State<Homepage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
-              onPressed: () {
-                show();
-              },
-              child: Text("show attendance")),
-          Text("Breakfast : $status"),
-          Text("Lunch : $status1"),
-          Text("Dinner :$status2")
+          Text(
+            "Breakfast : $status",
+            style: TextStyle(
+                fontSize: 20.0, color: Color.fromARGB(255, 206, 28, 28)),
+          ),
+          Text(
+            "Lunch : $status1",
+            style: TextStyle(
+                fontSize: 20.0, color: Color.fromARGB(255, 206, 28, 28)),
+          ),
+          Text(
+            "Dinner :$status2",
+            style: TextStyle(
+                fontSize: 20.0, color: Color.fromARGB(255, 206, 28, 28)),
+          )
         ],
       ),
     );

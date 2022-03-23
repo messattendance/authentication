@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
         child: SizedBox(
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: double.infinity,
@@ -42,22 +42,44 @@ class _HomeState extends State<Home> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.transparent,
+                    //primary: Colors.transparent,
                     elevation: 0.0,
                     padding: EdgeInsets.zero,
                   ),
                   child: Text(
                     "Show Menu",
-                    style: TextStyle(fontSize: 20.0, color: Colors.red),
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Color.fromARGB(255, 241, 241, 241)),
                   ),
                 ),
               ),
-              SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                      onPressed: () {}, child: Text("Give Feedback"))),
-              SizedBox(
+              Container(
                 width: double.infinity,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.red, Colors.blue],
+                  ),
+                ),
+                height: 80.0,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Give Feedback",
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Color.fromARGB(255, 241, 241, 241)),
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.red, Colors.blue],
+                  ),
+                ),
+                height: 80.0,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -67,20 +89,64 @@ class _HomeState extends State<Home> {
                       ),
                     );
                   },
-                  child: Text("Check Attendance"),
+                  child: Text(
+                    "Check Attendance",
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Color.fromARGB(255, 241, 241, 241)),
+                  ),
                 ),
               ),
-              ElevatedButton(
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.red, Colors.blue],
+                  ),
+                ),
+                height: 80.0,
+                child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Profile()));
                   },
-                  child: Text("Profile")),
-              ElevatedButton(
-                  onPressed: () {
-                    logout();
-                  },
-                  child: Text("Logout")),
+                  child: Text(
+                    "Profile",
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Color.fromARGB(255, 241, 241, 241)),
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.red, Colors.blue],
+                  ),
+                ),
+                height: 80.0,
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.red, Colors.blue],
+                    ),
+                  ),
+                  height: 80.0,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      logout();
+                    },
+                    child: Text(
+                      "Logout",
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          color: Color.fromARGB(255, 241, 241, 241)),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

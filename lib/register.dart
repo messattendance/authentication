@@ -35,13 +35,13 @@ class _RegisterState extends State<Register> {
                 labelText: "Enter Email",
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 62, 82, 196),
                     width: 2.0,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 62, 82, 196),
                     width: 2.0,
                   ),
                 ),
@@ -58,6 +58,21 @@ class _RegisterState extends State<Register> {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Enter Password",
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
               ),
             ),
           ),
@@ -67,21 +82,44 @@ class _RegisterState extends State<Register> {
               controller: idnumberController,
               decoration: InputDecoration(
                 labelText: "Enter Id Number",
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
               ),
             ),
           ),
-          ElevatedButton(
-              onPressed: () {
-                signup(emailController.text, passwordController.text,
-                    idnumberController.text);
-              },
-              child: Text("Register")),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Login()));
-              },
-              child: Text("Login")),
+          SizedBox(
+            width: 300,
+            height: 50,
+            child: ElevatedButton(
+                onPressed: () {
+                  signup(emailController.text, passwordController.text,
+                      idnumberController.text);
+                },
+                child: Text("Register")),
+          ),
+          SizedBox(
+            width: 300,
+            height: 50,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login()));
+                },
+                child: Text("Login")),
+          )
         ],
       ),
     );

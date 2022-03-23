@@ -22,7 +22,7 @@ class _LoginState extends State<Login> {
         title: Text("Login"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(20),
@@ -30,6 +30,21 @@ class _LoginState extends State<Login> {
               controller: emailController,
               decoration: InputDecoration(
                 labelText: "Enter Email",
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
               ),
             ),
           ),
@@ -40,6 +55,21 @@ class _LoginState extends State<Login> {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Enter Password",
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
               ),
             ),
           ),

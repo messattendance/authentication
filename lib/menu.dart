@@ -15,16 +15,16 @@ class _MenuState extends State<Menu> {
   String snacks = '';
   String dinner = '';
   @override
+  void initState() {
+    showmenu();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
-              onPressed: () {
-                showmenu();
-              },
-              child: Text("click here for menu")),
           Text("Breakfast : $breakfast"),
           Text("Lunch : $lunch"),
           Text("Snacks : $snacks"),

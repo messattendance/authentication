@@ -4410,13 +4410,13 @@ com.google.protobuf.Field$Cardinality$CardinalityVerifier
 com.google.common.cache.LocalCache$Strength$3
 androidx.coordinatorlayout.widget.CoordinatorLayout$HierarchyChangeListener
 com.google.android.gms.common.api.internal.zaam
-kotlinx.coroutines.flow.FlowKt__CountKt
 kotlinx.coroutines.internal.DispatchedContinuationKt:
     private static synthetic void getUNDEFINED$annotations()
     public static synthetic void getREUSABLE_CLAIMED$annotations()
     public static final boolean yieldUndispatched(kotlinx.coroutines.internal.DispatchedContinuation)
     private static final boolean executeUnconfined(kotlinx.coroutines.internal.DispatchedContinuation,java.lang.Object,int,boolean,kotlin.jvm.functions.Function0)
     static synthetic boolean executeUnconfined$default(kotlinx.coroutines.internal.DispatchedContinuation,java.lang.Object,int,boolean,kotlin.jvm.functions.Function0,int,java.lang.Object)
+kotlinx.coroutines.flow.FlowKt__CountKt
 androidx.legacy.app.ActionBarDrawerToggle$Delegate
 androidx.annotation.RequiresOptIn$Level
 kotlinx.coroutines.debug.internal.DebugCoroutineInfoImpl$yieldFrames$1
@@ -8030,8 +8030,8 @@ com.example.authentication.R$dimen
 com.google.common.util.concurrent.AbstractIdleService$DelegateService
 kotlin.io.ByteStreamsKt$iterator$1
 kotlin.coroutines.jvm.internal.RunSuspend
-io.grpc.internal.MigratingThreadDeframer$1RequestAgainOp
 com.google.protobuf.Type
+io.grpc.internal.MigratingThreadDeframer$1RequestAgainOp
 androidx.coordinatorlayout.widget.CoordinatorLayout$SavedState
 com.google.android.gms.internal.firebase-auth-api.zzis:
     static void <clinit>()
@@ -18162,6 +18162,7 @@ com.google.android.gms.common.api.GoogleApiClient:
     public static final java.lang.String DEFAULT_ACCOUNT
     public static final int SIGN_IN_MODE_REQUIRED
     public static final int SIGN_IN_MODE_OPTIONAL
+kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt$distinct$1
 kotlinx.coroutines.JobSupport:
     private final java.lang.Void loopOnState(kotlin.jvm.functions.Function1)
     private final synthetic void notifyHandlers(kotlinx.coroutines.NodeList,java.lang.Throwable)
@@ -18192,7 +18193,6 @@ kotlinx.coroutines.JobSupport:
     public final void selectAwaitCompletion$kotlinx_coroutines_core(kotlinx.coroutines.selects.SelectInstance,kotlin.jvm.functions.Function2)
     public synthetic void cancel()
     public kotlinx.coroutines.Job plus(kotlinx.coroutines.Job)
-kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt$distinct$1
 kotlin.sequences.SequencesKt__SequencesKt$ifEmpty$1
 com.google.android.gms.common.AccountPicker
 com.google.cloud.audit.AuthenticationInfo$Builder
@@ -22704,9 +22704,9 @@ io.flutter.plugin.common.PluginRegistry
 com.google.common.collect.Synchronized$SynchronizedMultiset
 com.google.gson.internal.bind.TimeTypeAdapter$1
 io.flutter.plugins.firebase.database.R$drawable
-com.google.firebase.firestore.auth.-$$Lambda$FirebaseAppCheckTokenProvider$hu48mr03bfT6X2LDSOXJket2KbA:
-    public final void onAppCheckTokenChanged(com.google.firebase.appcheck.AppCheckTokenResult)
 com.google.firebase.database.android.-$$Lambda$AndroidAppCheckTokenProvider$60vFfzkhuN4dN7asQDMFpqCxmE0:
+    public final void onAppCheckTokenChanged(com.google.firebase.appcheck.AppCheckTokenResult)
+com.google.firebase.firestore.auth.-$$Lambda$FirebaseAppCheckTokenProvider$hu48mr03bfT6X2LDSOXJket2KbA:
     public final void onAppCheckTokenChanged(com.google.firebase.appcheck.AppCheckTokenResult)
 kotlinx.coroutines.scheduling.ExperimentalCoroutineDispatcher:
     public void close()
@@ -23786,5 +23786,5 @@ kotlin.KotlinVersion:
 io.grpc.ClientInterceptors:
     private static final io.grpc.ClientCall NOOP_CALL
 com.google.firebase.database.android.-$$Lambda$AndroidAppCheckTokenProvider$d5ouCwY_MlmKFbkPIcW9iYuM3gk
-io.flutter.plugin.platform.PlatformView$-CC
 io.flutter.plugin.common.BinaryMessenger$-CC
+io.flutter.plugin.platform.PlatformView$-CC

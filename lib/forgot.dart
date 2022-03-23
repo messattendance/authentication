@@ -19,6 +19,21 @@ class Forgot extends StatelessWidget {
               controller: emailController,
               decoration: InputDecoration(
                 labelText: "Reset Password",
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color.fromARGB(255, 62, 82, 196),
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
               ),
             ),
           ),

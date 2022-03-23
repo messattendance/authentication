@@ -23,11 +23,6 @@ class _ProfileState extends State<Profile> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Username : $user'),
-          ElevatedButton(
-              onPressed: () {
-                showmail();
-              },
-              child: Text("get details"))
         ],
       ),
     );
