@@ -1,6 +1,8 @@
 import 'package:authentication/forgot.dart';
+import 'package:authentication/homepage.dart';
 import 'package:authentication/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:authentication/home.dart';
@@ -15,98 +17,122 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Login"),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextField(
-              controller: emailController,
-              decoration: InputDecoration(
-                labelText: "Enter Email",
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(255, 62, 82, 196),
-                    width: 2.0,
+          Image.asset("assets/images/v1.png"),
+          Positioned(
+            top: 100,
+            left: 92,
+            child: Text(
+              "MESS ATTENDANCE SYSTEM",
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  decoration: TextDecoration.none,
+                  fontSize: 16.0,
+                  color: Color.fromARGB(255, 48, 21, 81)),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 100,
                   ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(255, 62, 82, 196),
-                    width: 2.0,
+                  Image.asset(
+                    "assets/images/v3.png",
+                    width: size.width * 0.6,
                   ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        labelText: "Enter Email",
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 62, 82, 196),
+                            width: 2.0,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 62, 82, 196),
+                            width: 2.0,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextField(
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: "Enter Password",
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 62, 82, 196),
+                            width: 2.0,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 62, 82, 196),
+                            width: 2.0,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    height: 50,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          signin(emailController.text, passwordController.text);
+                        },
+                        child: Text("Login")),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    height: 50,
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Register()));
+                        },
+                        child: Text("Register")),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    height: 50,
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Forgot()));
+                        },
+                        child: Text("Forgot")),
+                  ),
+                ],
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextField(
-              controller: passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Enter Password",
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(255, 62, 82, 196),
-                    width: 2.0,
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(255, 62, 82, 196),
-                    width: 2.0,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 300,
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () {
-                signin(emailController.text, passwordController.text);
-              },
-              child: const Text("Login"),
-            ),
-          ),
-          SizedBox(
-            width: 300,
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Register(),
-                  ),
-                );
-              },
-              child: Text("Register"),
-            ),
-          ),
-          SizedBox(
-            width: 300,
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Forgot()));
-              },
-              child: Text("Forgot Password"),
             ),
           ),
         ],

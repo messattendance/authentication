@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -5,6 +7,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:authentication/Data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -108,26 +112,55 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Homepage"),
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Breakfast : $status",
-            style: TextStyle(
-                fontSize: 20.0, color: Color.fromARGB(255, 206, 28, 28)),
-          ),
-          Text(
-            "Lunch : $status1",
-            style: TextStyle(
-                fontSize: 20.0, color: Color.fromARGB(255, 206, 28, 28)),
-          ),
-          Text(
-            "Dinner :$status2",
-            style: TextStyle(
-                fontSize: 20.0, color: Color.fromARGB(255, 206, 28, 28)),
+          Padding(
+            padding: EdgeInsets.all(15),
+            child: Container(
+              height: 180,
+              width: 362,
+              child: Column(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      "Breakfast : $status",
+                      style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontSize: 16,
+                          color: Color.fromRGBO(73, 43, 124, 1)),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      "Lunch : $status1",
+                      style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontSize: 16,
+                          color: Color.fromRGBO(73, 43, 124, 1)),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      "Dinner : $status2",
+                      style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontSize: 16,
+                          color: Color.fromRGBO(73, 43, 124, 1)),
+                    ),
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(73, 43, 124, 0.04),
+                  border: Border(
+                      left: BorderSide(
+                          width: 20, color: Color.fromRGBO(255, 193, 112, 1)))),
+            ),
           )
         ],
       ),

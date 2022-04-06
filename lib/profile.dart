@@ -22,7 +22,33 @@ class _ProfileState extends State<Profile> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Username : $user'),
+          Padding(
+            padding: EdgeInsets.all(15),
+            child: Container(
+              height: 60,
+              width: 362,
+              child: Column(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      "Username : $user",
+                      style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontSize: 16,
+                          color: Color.fromRGBO(73, 43, 124, 1)),
+                    ),
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(73, 43, 124, 0.04),
+                  border: Border(
+                      left: BorderSide(
+                          width: 20, color: Color.fromRGBO(255, 193, 112, 1)))),
+            ),
+          )
         ],
       ),
     );

@@ -56,6 +56,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "convert",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/convert-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "1.17"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
       "packageUri": "lib/",
@@ -134,10 +140,28 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_clean_calendar",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/flutter_clean_calendar-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/flutter_lints-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_svg",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/flutter_svg-0.17.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
     },
     {
       "name": "flutter_test",
@@ -206,6 +230,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "path_drawing",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path_drawing-0.4.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path_parsing-0.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
+    },
+    {
+      "name": "petitparser",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/petitparser-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "plugin_platform_interface",
       "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2",
       "packageUri": "lib/",
@@ -266,13 +308,19 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///C:/Users/devis/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/xml-3.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "authentication",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-03-14T11:06:58.046126Z",
+  "generated": "2022-03-29T18:54:15.949536Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }
