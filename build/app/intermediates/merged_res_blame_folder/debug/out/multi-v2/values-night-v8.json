@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\devis\\OneDrive\\Desktop\\authentication\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "C:\\Users\\DEEPAK KUMAR\\Documents\\authentication\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\devis\\OneDrive\\Desktop\\authentication\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\DEEPAK KUMAR\\Documents\\authentication\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

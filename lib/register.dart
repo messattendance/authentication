@@ -15,6 +15,10 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   String dropdownValue = 'Dinning Hall';
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController idnumberController = TextEditingController();
+
   List<String> location = [
     'Dinning Hall',
     'DH1',
@@ -29,9 +33,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    final TextEditingController idnumberController = TextEditingController();
+
     final _auth = FirebaseAuth.instance;
     return Scaffold(
       body: Stack(

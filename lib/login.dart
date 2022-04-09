@@ -1,3 +1,4 @@
+import 'package:authentication/bottomnav.dart';
 import 'package:authentication/forgot.dart';
 import 'package:authentication/homepage.dart';
 import 'package:authentication/register.dart';
@@ -15,11 +16,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -50,7 +52,7 @@ class _LoginState extends State<Login> {
                     width: size.width * 0.6,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
                       controller: emailController,
                       decoration: const InputDecoration(
@@ -74,7 +76,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
                       controller: passwordController,
                       obscureText: true,
@@ -99,7 +101,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   SizedBox(
-                    width: 300,
+                    width: 200,
                     height: 50,
                     child: ElevatedButton(
                         onPressed: () {
@@ -145,7 +147,7 @@ class _LoginState extends State<Login> {
     await _auth
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Home())))
+            context, MaterialPageRoute(builder: (context) => BottomNav())))
         .catchError((e) {
       Fluttertoast.showToast(msg: e!.message);
     });

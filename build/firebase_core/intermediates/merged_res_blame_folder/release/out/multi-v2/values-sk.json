@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\devis\\OneDrive\\Desktop\\authentication\\build\\firebase_core\\intermediates\\res\\merged\\release\\values-sk\\values-sk.xml",
+            "outputFile": "C:\\Users\\DEEPAK KUMAR\\Documents\\authentication\\build\\firebase_core\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-sk\\values-sk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\devis\\.gradle\\caches\\transforms-2\\files-2.1\\31715385bafd62549af76de3e227190b\\jetified-play-services-basement-17.0.0\\res\\values-sk\\values.xml",
+                    "source": "C:\\Users\\DEEPAK KUMAR\\.gradle\\caches\\transforms-2\\files-2.1\\31715385bafd62549af76de3e227190b\\jetified-play-services-basement-17.0.0\\res\\values-sk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\devis\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-sk\\values-sk.xml",
+                    "source": "C:\\Users\\DEEPAK KUMAR\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-sk\\values-sk.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -40,10 +40,10 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\devis\\OneDrive\\Desktop\\authentication\\build\\firebase_core\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-sk\\values-sk.xml",
+            "outputFile": "C:\\Users\\DEEPAK KUMAR\\Documents\\authentication\\build\\firebase_core\\intermediates\\res\\merged\\release\\values-sk\\values-sk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\devis\\.gradle\\caches\\transforms-2\\files-2.1\\31715385bafd62549af76de3e227190b\\jetified-play-services-basement-17.0.0\\res\\values-sk\\values.xml",
+                    "source": "C:\\Users\\DEEPAK KUMAR\\.gradle\\caches\\transforms-2\\files-2.1\\31715385bafd62549af76de3e227190b\\jetified-play-services-basement-17.0.0\\res\\values-sk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -60,7 +60,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\devis\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-sk\\values-sk.xml",
+                    "source": "C:\\Users\\DEEPAK KUMAR\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-sk\\values-sk.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

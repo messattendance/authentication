@@ -22,6 +22,11 @@ class _MenuState extends State<Menu> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Check Menu'),
+        centerTitle: true,
+        backgroundColor: Color.fromRGBO(48, 21, 81, 1),
+      ),
       body: Padding(
         padding: EdgeInsets.all(10),
         child: Column(
@@ -38,15 +43,21 @@ class _MenuState extends State<Menu> {
                       padding: EdgeInsets.all(15),
                       child: Text(
                         "Breakfast",
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 73, 43, 124)),
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(62, 60, 60, 0.5)),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(15),
                       child: Text(
-                        "hi $breakfast",
-                        style: TextStyle(color: Colors.white),
+                        "$breakfast",
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 73, 43, 124)),
                       ),
                     ),
                   ],
@@ -55,7 +66,7 @@ class _MenuState extends State<Menu> {
                     color: Colors.white,
                     border: Border(
                         left: BorderSide(
-                            color: Color.fromARGB(31, 73, 43, 124),
+                            color: Color.fromRGBO(255, 193, 112, 1),
                             width: 15))),
               ),
             ),
@@ -70,15 +81,21 @@ class _MenuState extends State<Menu> {
                       padding: EdgeInsets.all(15),
                       child: Text(
                         "Lunch",
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 73, 43, 124)),
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(62, 60, 60, 0.5)),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(15),
                       child: Text(
-                        "hi $breakfast",
-                        style: TextStyle(color: Colors.white),
+                        "$lunch",
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 73, 43, 124)),
                       ),
                     ),
                   ],
@@ -87,7 +104,7 @@ class _MenuState extends State<Menu> {
                     color: Colors.white,
                     border: Border(
                         left: BorderSide(
-                            color: Color.fromARGB(31, 73, 43, 124),
+                            color: Color.fromRGBO(255, 193, 112, 1),
                             width: 15))),
               ),
             ),
@@ -102,8 +119,21 @@ class _MenuState extends State<Menu> {
                       padding: EdgeInsets.all(15),
                       child: Text(
                         "Snacks",
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 73, 43, 124)),
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(62, 60, 60, 0.5)),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        "$snacks",
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 73, 43, 124)),
                       ),
                     ),
                   ],
@@ -112,7 +142,7 @@ class _MenuState extends State<Menu> {
                     color: Colors.white,
                     border: Border(
                         left: BorderSide(
-                            color: Color.fromARGB(31, 73, 43, 124),
+                            color: Color.fromRGBO(255, 193, 112, 1),
                             width: 15))),
               ),
             ),
@@ -127,15 +157,21 @@ class _MenuState extends State<Menu> {
                       padding: EdgeInsets.all(15),
                       child: Text(
                         "Dinner",
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 73, 43, 124)),
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(62, 60, 60, 0.5)),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(15),
                       child: Text(
-                        "hi $breakfast",
-                        style: TextStyle(color: Colors.white),
+                        "$dinner",
+                        style: TextStyle(
+                            fontFamily: "poppins",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 73, 43, 124)),
                       ),
                     ),
                   ],
@@ -144,7 +180,7 @@ class _MenuState extends State<Menu> {
                     color: Colors.white,
                     border: Border(
                         left: BorderSide(
-                            color: Color.fromARGB(31, 73, 43, 124),
+                            color: Color.fromRGBO(255, 193, 112, 1),
                             width: 15))),
               ),
             )
@@ -165,7 +201,7 @@ class _MenuState extends State<Menu> {
       lunch = v['lunch'];
       snacks = v['snacks'];
       dinner = v['dinner'];
-      print(lunch);
+      print(breakfast + lunch + snacks + dinner);
     });
   }
 }

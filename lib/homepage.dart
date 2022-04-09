@@ -7,7 +7,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:authentication/Data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
-
+import "package:flutter_clean_calendar/flutter_clean_calendar.dart";
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Homepage extends StatefulWidget {
@@ -38,7 +38,9 @@ class _HomepageState extends State<Homepage> {
     String breakfast = formatter.format(now) + ' ' + "Breakfast";
     String Lunch = formatter.format(now) + ' ' + "Lunch";
     String Dinner = formatter.format(now) + ' ' + "Dinner";
+
     print(breakfast);
+
     final db = FirebaseDatabase.instance.reference().child(breakfast);
     db.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
@@ -112,6 +114,11 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Today Attendance'),
+        centerTitle: true,
+        backgroundColor: Color.fromRGBO(48, 21, 81, 1),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
