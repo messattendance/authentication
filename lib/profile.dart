@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:authentication/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -48,7 +51,29 @@ class _ProfileState extends State<Profile> {
                       left: BorderSide(
                           width: 20, color: Color.fromRGBO(255, 193, 112, 1)))),
             ),
-          )
+          ),
+          Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.red, Colors.blue],
+              ),
+            ),
+            height: 80.0,
+            child: ElevatedButton(
+              onPressed: () async {
+                final SharedPreferences sharedPreferences =
+                    await SharedPreferences.getInstance();
+                sharedPreferences.remove('email');
+                logout(context);
+              },
+              child: Text(
+                "Logout",
+                style: TextStyle(
+                    fontSize: 20.0, color: Color.fromARGB(255, 241, 241, 241)),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -60,4 +85,15 @@ class _ProfileState extends State<Profile> {
       user = _auth.currentUser?.email;
     });
   }
+}
+
+void logout(BuildContext context) async {
+  final _auth = FirebaseAuth.instance;
+  await _auth
+      .signOut()
+      .then((value) => Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Login())))
+      .catchError((e) {
+    Fluttertoast.showToast(msg: e!.message);
+  });
 }

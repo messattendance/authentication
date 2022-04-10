@@ -2,6 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:toggle_switch/toggle_switch.dart';
+import 'package:intl/intl.dart';
+
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
 
@@ -10,6 +14,7 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  final _auth = FirebaseAuth.instance;
   String breakfast = '';
   String lunch = '';
   String snacks = '';
@@ -153,26 +158,30 @@ class _MenuState extends State<Menu> {
                 width: 350,
                 child: Row(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(15),
-                      child: Text(
-                        "Dinner",
-                        style: TextStyle(
-                            fontFamily: "poppins",
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromRGBO(62, 60, 60, 0.5)),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(15),
-                      child: Text(
-                        "$dinner",
-                        style: TextStyle(
-                            fontFamily: "poppins",
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 73, 43, 124)),
-                      ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            "Dinner",
+                            style: TextStyle(
+                                fontFamily: "poppins",
+                                fontWeight: FontWeight.w500,
+                                color: Color.fromRGBO(62, 60, 60, 0.5)),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            "$dinner",
+                            style: TextStyle(
+                                fontFamily: "poppins",
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: Color.fromARGB(255, 73, 43, 124)),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -183,7 +192,59 @@ class _MenuState extends State<Menu> {
                             color: Color.fromRGBO(255, 193, 112, 1),
                             width: 15))),
               ),
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: Container(
+                height: 70,
+                width: 350,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            "Interested ?",
+                            style: TextStyle(
+                                fontFamily: "poppins",
+                                fontWeight: FontWeight.w500,
+                                color: Color.fromRGBO(62, 60, 60, 0.5)),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(15),
+                          child: ToggleSwitch(
+                            customWidths: [50.0, 50.0],
+                            cornerRadius: 20.0,
+                            activeBgColors: [
+                              [Colors.cyan],
+                              [Colors.redAccent]
+                            ],
+                            activeFgColor: Colors.white,
+                            inactiveBgColor: Colors.grey,
+                            inactiveFgColor: Colors.white,
+                            totalSwitches: 2,
+                            labels: ['YES', 'NO'],
+                            onToggle: (index) {
+                              getleave(index);
+                              onChanged:
+                              null;
+                            },
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border(
+                        left: BorderSide(
+                            color: Color.fromRGBO(255, 193, 112, 1),
+                            width: 15))),
+              ),
+            ),
           ],
         ),
       ),
@@ -191,7 +252,6 @@ class _MenuState extends State<Menu> {
   }
 
   void showmenu() async {
-    print("hi");
     DocumentSnapshot<Map<String, dynamic>> v = await FirebaseFirestore.instance
         .collection('menu')
         .doc('avs7rYGkSNUXRCH6latE')
@@ -203,5 +263,24 @@ class _MenuState extends State<Menu> {
       dinner = v['dinner'];
       print(breakfast + lunch + snacks + dinner);
     });
+  }
+
+  void getleave(int? index) async {
+    try {
+      if (index == 1) {
+        String? idnumber = _auth.currentUser?.email?.substring(0, 7);
+
+        var now = new DateTime.now();
+        var formatter = new DateFormat('dd-MM-yyyy');
+        String todaydate = formatter.format(now);
+        print(idnumber);
+        await FirebaseFirestore.instance
+            .collection('leavemeal')
+            .doc(todaydate + ' ' + idnumber.toString())
+            .set({'idnumber': idnumber});
+      }
+    } catch (err) {
+      print(err);
+    }
   }
 }

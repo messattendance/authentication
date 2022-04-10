@@ -1,9 +1,15 @@
+import 'dart:async';
+
 import 'package:authentication/CalenderApp.dart';
 import 'package:authentication/feedback.dart';
 import 'package:authentication/homepage.dart';
+import 'package:authentication/login.dart';
 import 'package:authentication/menu.dart';
 import 'package:authentication/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({Key? key}) : super(key: key);
@@ -14,13 +20,33 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   int _currentIndex = 0;
+  String finalemail = "";
 
   final tabs = [
-    Center(child: Homepage()),
-    Center(child: Menu()),
     Center(child: CalenderApp()),
+    Center(child: Menu()),
     Center(child: Fedback()),
+    Center(child: Profile()),
   ];
+
+  void initState() {
+    getValidate().whenComplete(() async {
+      Timer(Duration(seconds: 2),
+          () => Get.to(finalemail == null ? Login() : BottomNav()));
+    });
+    super.initState();
+  }
+
+  Future getValidate() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+
+    String? obtainedemail = sharedPreferences.getString('email');
+    setState(() {
+      finalemail = obtainedemail!;
+    });
+    print(finalemail);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +71,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),
-            label: 'Calender',
+            label: 'Feedback',
             backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(

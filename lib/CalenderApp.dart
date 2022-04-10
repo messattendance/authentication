@@ -35,9 +35,6 @@ class _CalenderAppState extends State<CalenderApp> {
     String breakfast = formatter.format(now) + ' ' + "Breakfast";
     String Lunch = formatter.format(now) + ' ' + "Lunch";
     String Dinner = formatter.format(now) + ' ' + "Dinner";
-    print(breakfast);
-    print(Dinner);
-    print(Lunch);
 
     final db = FirebaseDatabase.instance.reference().child(breakfast);
     db.once().then((DataSnapshot snapshot) {
@@ -52,10 +49,9 @@ class _CalenderAppState extends State<CalenderApp> {
       if (status.length != 0) {
         print("first" + status);
       } else {
-        status = "Not yet attended";
+        status = "Not Attended";
       }
     });
-
     final db1 = FirebaseDatabase.instance.reference().child(Lunch);
     db1.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
@@ -69,7 +65,7 @@ class _CalenderAppState extends State<CalenderApp> {
       if (status1.length != 0) {
         print(status1);
       } else {
-        status1 = "Not yet attended";
+        status1 = "Not Attended";
       }
     });
 
@@ -86,22 +82,22 @@ class _CalenderAppState extends State<CalenderApp> {
       if (status2.length != 0) {
         print(status2);
       } else {
-        status2 = "Not yet attended";
+        status2 = "Not Attended";
       }
     });
     if (status2.length == 0) {
       setState(() {
-        status2 = "not yet attended";
+        status2 = "Not attended";
       });
     }
     if (status1.length == 0) {
       setState(() {
-        status1 = "not yet attended";
+        status1 = "Not attended";
       });
     }
     if (status.length == 0) {
       setState(() {
-        status = "not yet attended";
+        status = "Not attended";
       });
     }
 
@@ -149,94 +145,92 @@ class _CalenderAppState extends State<CalenderApp> {
       ),
       body: SafeArea(
         child: Container(
-          child:Column(
-            children:[
-              Expanded(
-                child:Calendar(
-            startOnMonday: true,
-            selectedColor: Color.fromARGB(255, 73, 43, 124),
-            todayColor: Color.fromRGBO(255, 193, 112, 1),
-            eventColor: Colors.green,
-            eventDoneColor: Colors.amber,
-            bottomBarColor: Color.fromRGBO(255, 193, 112, 1),
-            onRangeSelected: (range) {
-              print('selected Day ${range.from}, ${range.to}');
-            },
-            onDateSelected: (date) {
-              return _handleData(date);
-            },
-            events: events,
-            isExpanded: true,
-            isExpandable: true,
-            dayOfWeekStyle: TextStyle(
-              fontSize: 16,
-              color: Color.fromRGBO(62, 60, 60, 0.5),
-              fontWeight: FontWeight.w500,
-            ),
-            bottomBarTextStyle:
-                TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-            hideBottomBar: false,
-            hideArrows: false,
-            weekDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-          ),
-
+          child: Column(children: [
+            Expanded(
+              child: Calendar(
+                startOnMonday: true,
+                selectedColor: Color.fromARGB(255, 73, 43, 124),
+                todayColor: Color.fromRGBO(255, 193, 112, 1),
+                eventColor: Colors.green,
+                eventDoneColor: Colors.amber,
+                bottomBarColor: Color.fromRGBO(255, 193, 112, 1),
+                onRangeSelected: (range) {
+                  print('selected Day ${range.from}, ${range.to}');
+                },
+                onDateSelected: (date) {
+                  return _handleData(date);
+                },
+                events: events,
+                isExpanded: true,
+                isExpandable: true,
+                dayOfWeekStyle: TextStyle(
+                  fontSize: 16,
+                  color: Color.fromRGBO(62, 60, 60, 0.5),
+                  fontWeight: FontWeight.w500,
+                ),
+                bottomBarTextStyle:
+                    TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                hideBottomBar: false,
+                hideArrows: false,
+                weekDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
               ),
-              Expanded(
-                child:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(15),
-            child: Container(
-              height: 180,
-              width: 362,
+            ),
+            Expanded(
               child: Column(
-                // ignore: prefer_const_literals_to_create_immutables
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding: EdgeInsets.all(15),
-                    child: Text(
-                      "Breakfast : $status",
-                      style: TextStyle(
-                          fontFamily: 'poppins',
-                          fontSize: 16,
-                          color: Color.fromRGBO(73, 43, 124, 1)),
+                    child: Container(
+                      height: 180,
+                      width: 362,
+                      child: Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              "Breakfast : $status",
+                              style: TextStyle(
+                                  fontFamily: 'poppins',
+                                  fontSize: 16,
+                                  color: Color.fromRGBO(73, 43, 124, 1)),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              "Lunch : $status1",
+                              style: TextStyle(
+                                  fontFamily: 'poppins',
+                                  fontSize: 16,
+                                  color: Color.fromRGBO(73, 43, 124, 1)),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              "Dinner : $status2",
+                              style: TextStyle(
+                                  fontFamily: 'poppins',
+                                  fontSize: 16,
+                                  color: Color.fromRGBO(73, 43, 124, 1)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(73, 43, 124, 0.04),
+                          border: Border(
+                              left: BorderSide(
+                                  width: 20,
+                                  color: Color.fromRGBO(255, 193, 112, 1)))),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      "Lunch : $status1",
-                      style: TextStyle(
-                          fontFamily: 'poppins',
-                          fontSize: 16,
-                          color: Color.fromRGBO(73, 43, 124, 1)),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      "Dinner : $status2",
-                      style: TextStyle(
-                          fontFamily: 'poppins',
-                          fontSize: 16,
-                          color: Color.fromRGBO(73, 43, 124, 1)),
-                    ),
-                  ),
+                  )
                 ],
               ),
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(73, 43, 124, 0.04),
-                  border: Border(
-                      left: BorderSide(
-                          width: 20, color: Color.fromRGBO(255, 193, 112, 1)))),
             ),
-          )
-        ],
-      ),
-              ),
-            ]
-          ) ,
+          ]),
         ),
       ),
     );

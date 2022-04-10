@@ -21,7 +21,7 @@ class _FedbackState extends State<Fedback> {
   double q2 = 0;
   double q3 = 0;
   double q4 = 0;
-  String complaint="";
+  String complaint = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +56,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                 ),
                 RatingBar.builder(
-                  initialRating: 0,
+                  initialRating: q1,
                   minRating: 1,
                   direction: Axis.horizontal,
                   allowHalfRating: false,
@@ -68,6 +68,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                   onRatingUpdate: (rating) {
                     q1 = rating;
+                    setState(() {});
                   },
                 ),
               ],
@@ -99,7 +100,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                 ),
                 RatingBar.builder(
-                  initialRating: 0,
+                  initialRating: q2,
                   minRating: 1,
                   direction: Axis.horizontal,
                   allowHalfRating: false,
@@ -111,6 +112,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                   onRatingUpdate: (rating1) {
                     q2 = rating1;
+                    setState(() {});
                   },
                 ),
               ],
@@ -142,7 +144,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                 ),
                 RatingBar.builder(
-                  initialRating: 0,
+                  initialRating: q3,
                   minRating: 1,
                   direction: Axis.horizontal,
                   allowHalfRating: false,
@@ -154,6 +156,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                   onRatingUpdate: (rating2) {
                     q3 = rating2;
+                    setState(() {});
                   },
                 ),
               ],
@@ -185,7 +188,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                 ),
                 RatingBar.builder(
-                  initialRating: 0,
+                  initialRating: q4,
                   minRating: 1,
                   direction: Axis.horizontal,
                   allowHalfRating: false,
@@ -197,6 +200,7 @@ class _FedbackState extends State<Fedback> {
                   ),
                   onRatingUpdate: (rating3) {
                     q4 = rating3;
+                    setState(() {});
                   },
                 ),
               ],
@@ -243,7 +247,7 @@ class _FedbackState extends State<Fedback> {
             decoration: const InputDecoration(
               labelText: "Write your Complaint",
               border: OutlineInputBorder(
-              // borderRadius: BorderRadius.circular(8),
+                // borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
                   color: Color.fromARGB(255, 62, 82, 196),
                   width: 2.0,
@@ -269,6 +273,7 @@ class _FedbackState extends State<Fedback> {
             child: ElevatedButton(
                 onPressed: () {
                   pushComplaint(complaintController.text);
+                  complaintController.text = "";
                 },
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(30, 15),
@@ -285,42 +290,39 @@ class _FedbackState extends State<Fedback> {
     if (q1 == 0 || q2 == 0 || q3 == 0 || q4 == 0) {
       Fluttertoast.showToast(msg: "Required Feedback for every Question");
     } else {
-         var now = new DateTime.now();
-         var formatter = new DateFormat('dd-MM-yyyy');
-         String? idnumber= _auth.currentUser?.email?.substring(0, 7);
-         String todaydate = formatter.format(now);
-        FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-        User? user = _auth.currentUser;
-         await firebaseFirestore
+      var now = new DateTime.now();
+      var formatter = new DateFormat('dd-MM-yyyy');
+      String? idnumber = _auth.currentUser?.email?.substring(0, 7);
+      String todaydate = formatter.format(now);
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+      User? user = _auth.currentUser;
+      await firebaseFirestore
           .collection("feedback")
-          .doc(todaydate)
-          .set({'idnumber': idnumber,
-                 'q1':q1,
-                 'q2':q2,
-                 'q3':q3,
-                  'q4':q4});
+          .doc(todaydate + ' ' + idnumber.toString())
+          .set({'idnumber': idnumber, 'q1': q1, 'q2': q2, 'q3': q3, 'q4': q4});
     }
   }
 
   void pushComplaint(complaint) async {
     print(complaint);
-    if (complaint.length==0) {
-       Fluttertoast.showToast(msg: "Write Complaint");
-    }
-    else{
+    if (complaint.length == 0) {
+      Fluttertoast.showToast(msg: "Write Complaint");
+    } else {
       var now = new DateTime.now();
-         var formatter = new DateFormat('dd-MM-yyyy');
-         String? idnumber= _auth.currentUser?.email?.substring(0, 7);
-         String todaydate = formatter.format(now);
-        FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-        User? user = _auth.currentUser;
-         await firebaseFirestore
+      var formatter = new DateFormat('dd-MM-yyyy');
+      String? idnumber = _auth.currentUser?.email?.substring(0, 7);
+      String todaydate = formatter.format(now);
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+      User? user = _auth.currentUser;
+
+      await firebaseFirestore
           .collection("complaints")
-          .doc(todaydate)
-          .set({'idnumber': idnumber,
-                 'complaint': complaint,
-                 'status':"Intiated"});
+          .doc(todaydate + ' ' + idnumber.toString())
+          .set({
+        'idnumber': idnumber,
+        'complaint': complaint,
+        'status': "initiated"
+      });
     }
-    
   }
 }

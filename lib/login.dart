@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:authentication/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -104,8 +105,13 @@ class _LoginState extends State<Login> {
                     width: 200,
                     height: 50,
                     child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           signin(emailController.text, passwordController.text);
+                          final SharedPreferences sharedPreferences =
+                              await SharedPreferences.getInstance();
+
+                          sharedPreferences.setString(
+                              "email", emailController.text);
                         },
                         child: Text("Login")),
                   ),

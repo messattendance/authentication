@@ -465,6 +465,7 @@ kotlin.collections.ArraysKt___ArraysJvmKt:
     private static final java.math.BigInteger sumOfBigInteger(char[],kotlin.jvm.functions.Function1)
     public void <init>()
 com.google.firebase.firestore.R$integer
+io.flutter.plugins.sharedpreferences.R$style
 kotlinx.coroutines.internal.LocalAtomics_commonKt
 kotlinx.coroutines.channels.AbstractChannel$onReceive$1
 com.google.api.LogDescriptor$1
@@ -6388,6 +6389,7 @@ kotlin.sequences.FlatteningSequence$iterator$1
 kotlinx.coroutines.CancelFutureOnCancel
 kotlin.DeepRecursiveFunction
 kotlin.collections.ArraysKt___ArraysJvmKt$asList$3
+io.flutter.plugins.sharedpreferences.R$dimen
 com.google.common.primitives.UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator
 kotlin.comparisons.ComparisonsKt__ComparisonsKt$thenBy$1
 okio.ForwardingTimeout
@@ -6420,6 +6422,7 @@ io.grpc.okhttp.ExceptionHandlingFrameWriter:
     public void pushPromise(int,int,java.util.List)
     public void synReply(boolean,int,java.util.List)
     public void headers(int,java.util.List)
+io.flutter.plugins.sharedpreferences.R
 javax.annotation.meta.TypeQualifierNickname
 kotlinx.coroutines.selects.WhileSelectKt
 com.google.api.ConfigChangeOrBuilder
@@ -8781,6 +8784,7 @@ com.google.common.collect.TopKSelector
 com.google.gson.Gson$1
 io.flutter.embedding.engine.loader.FlutterLoader$Settings:
     public void setLogTag(java.lang.String)
+io.flutter.plugins.sharedpreferences.BuildConfig
 com.google.firebase.database.core.operation.package-info
 com.google.common.collect.StandardTable$Column$EntrySetIterator
 androidx.core.app.ShareCompat
@@ -9734,6 +9738,11 @@ com.google.type.LatLngProto
 io.grpc.util.TransmitStatusRuntimeExceptionInterceptor$SerializingServerCall$9
 androidx.customview.widget.FocusStrategy$SequentialComparator
 com.google.firebase.database.core.view.filter.package-info
+io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl:
+    private static final java.lang.String SHARED_PREFERENCES_NAME
+    private static final java.lang.String LIST_IDENTIFIER
+    private static final java.lang.String BIG_INTEGER_PREFIX
+    private static final java.lang.String DOUBLE_PREFIX
 com.google.common.util.concurrent.ClosingFuture$Combiner5$ClosingFunction5
 com.google.api.ConfigChange
 com.google.common.collect.HashBiMap$EntryForValue
@@ -11132,6 +11141,7 @@ androidx.browser.browseractions.BrowserActionsFallbackMenuAdapter
 com.google.common.collect.Maps$3
 io.grpc.ForwardingClientCallListener
 io.flutter.plugins.firebase.firestore.R$drawable
+io.flutter.plugins.sharedpreferences.R$drawable
 com.google.common.base.Joiner$3
 androidx.coordinatorlayout.widget.CoordinatorLayout$OnPreDrawListener
 com.google.common.collect.MapMakerInternalMap
@@ -13807,6 +13817,9 @@ kotlin.collections.UByteIterator
 com.google.common.collect.Range$LowerBoundFn
 com.google.android.gms.common.api.internal.zae:
     public void zaa(com.google.android.gms.common.api.internal.zaz,boolean)
+io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin:
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
+    private static final java.lang.String CHANNEL_NAME
 kotlinx.coroutines.channels.Channel$Factory:
     public static final int UNLIMITED
     public static final int RENDEZVOUS
@@ -14808,6 +14821,7 @@ com.google.common.collect.HashMultimap
 com.google.android.gms.common.util.concurrent.HandlerExecutor
 com.google.firebase.database.core.TokenProvider:
     public abstract void removeTokenChangeListener(com.google.firebase.database.core.TokenProvider$TokenChangeListener)
+io.flutter.plugins.sharedpreferences.R$id
 io.github.ponnamkarthik.toast.fluttertoast.R$style
 androidx.browser.browseractions.BrowserActionsFallbackMenuUi$2
 kotlin.reflect.KMutableProperty1$Setter
@@ -15504,6 +15518,7 @@ com.google.protobuf.DescriptorProtos$DescriptorProto$ReservedRange$Builder
 com.google.common.collect.AbstractBiMap$1
 com.google.firestore.v1.StructuredQuery$FilterOrBuilder
 com.google.api.LogProto
+io.flutter.plugins.sharedpreferences.R$string
 kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3
 com.google.android.gms.internal.firebase-auth-api.zzgk:
     static void <clinit>()
@@ -15674,6 +15689,7 @@ com.google.type.Fraction$Builder
 com.google.gson.internal.JsonReaderInternalAccess:
     public abstract void promoteNameToValue(com.google.gson.stream.JsonReader)
 com.google.common.collect.Maps$8
+io.flutter.plugins.sharedpreferences.R$layout
 com.google.cloud.audit.AuthorizationInfo$Builder
 io.grpc.stub.InternalClientCalls$StubType
 com.google.api.Distribution$BucketOptions$Linear
@@ -17260,6 +17276,7 @@ kotlin.collections.ArrayDeque
 com.google.common.util.concurrent.ClosingFuture$AsyncClosingCallable
 com.google.common.primitives.Floats
 com.google.type.Quaternion$1
+io.flutter.plugins.sharedpreferences.R$integer
 io.grpc.Contexts:
     private void <init>()
     public static io.grpc.ServerCall$Listener interceptCall(io.grpc.Context,io.grpc.ServerCall,io.grpc.Metadata,io.grpc.ServerCallHandler)
@@ -17890,8 +17907,8 @@ com.google.common.math.LongMath:
     static final long MAX_POWER_OF_SQRT2_UNSIGNED
     static final long FLOOR_SQRT_MAX_LONG
     private static final int SIEVE_30
-com.google.firestore.v1.StructuredQuery$UnaryFilter$OperandTypeCase
 com.google.firestore.v1.TargetChange$TargetChangeType$TargetChangeTypeVerifier
+com.google.firestore.v1.StructuredQuery$UnaryFilter$OperandTypeCase
 com.google.common.base.Converter$ReverseConverter
 com.google.common.hash.Funnels$ByteArrayFunnel
 com.google.protobuf.EnumValue$Builder
@@ -20082,6 +20099,7 @@ androidx.drawerlayout.R$layout
 io.grpc.internal.OobChannel$2
 io.grpc.TlsChannelCredentials$1
 com.google.android.gms.common.api.internal.zabd
+io.flutter.plugins.sharedpreferences.R$styleable
 com.google.common.util.concurrent.AbstractScheduledService$CustomScheduler$ReschedulableCallable
 com.google.firebase.firestore.index.IntMath:
     private void <init>()
@@ -20733,6 +20751,7 @@ com.google.protobuf.DescriptorProtos$EnumDescriptorProto$EnumReservedRangeOrBuil
 com.google.common.util.concurrent.ListenableFuture
 com.google.android.gms.common.AccountPicker$AccountChooserOptions$Builder
 kotlinx.coroutines.CancelFutureOnCompletion
+io.flutter.plugins.sharedpreferences.R$attr
 kotlinx.coroutines.flow.FlowKt__ErrorsKt$catchImpl$$inlined$collect$1$1
 com.google.common.util.concurrent.AggregateFutureState$AtomicHelper
 com.google.common.collect.LinkedListMultimap$NodeIterator
@@ -21385,6 +21404,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelReader:
     public static android.os.Parcel[] createParcelArray(android.os.Parcel,int)
     public static java.util.ArrayList createParcelList(android.os.Parcel,int)
     public static void readList(android.os.Parcel,int,java.util.List,java.lang.ClassLoader)
+io.flutter.plugins.sharedpreferences.R$color
 kotlin.jvm.functions.Function13:
     public abstract java.lang.Object invoke(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
 com.google.common.hash.Hashing$Sha1Holder
@@ -22704,9 +22724,9 @@ io.flutter.plugin.common.PluginRegistry
 com.google.common.collect.Synchronized$SynchronizedMultiset
 com.google.gson.internal.bind.TimeTypeAdapter$1
 io.flutter.plugins.firebase.database.R$drawable
-com.google.firebase.firestore.auth.-$$Lambda$FirebaseAppCheckTokenProvider$hu48mr03bfT6X2LDSOXJket2KbA:
-    public final void onAppCheckTokenChanged(com.google.firebase.appcheck.AppCheckTokenResult)
 com.google.firebase.database.android.-$$Lambda$AndroidAppCheckTokenProvider$60vFfzkhuN4dN7asQDMFpqCxmE0:
+    public final void onAppCheckTokenChanged(com.google.firebase.appcheck.AppCheckTokenResult)
+com.google.firebase.firestore.auth.-$$Lambda$FirebaseAppCheckTokenProvider$hu48mr03bfT6X2LDSOXJket2KbA:
     public final void onAppCheckTokenChanged(com.google.firebase.appcheck.AppCheckTokenResult)
 kotlinx.coroutines.scheduling.ExperimentalCoroutineDispatcher:
     public void close()
@@ -23786,5 +23806,5 @@ kotlin.KotlinVersion:
 io.grpc.ClientInterceptors:
     private static final io.grpc.ClientCall NOOP_CALL
 com.google.firebase.database.android.-$$Lambda$AndroidAppCheckTokenProvider$d5ouCwY_MlmKFbkPIcW9iYuM3gk
-io.flutter.plugin.platform.PlatformView$-CC
 io.flutter.plugin.common.BinaryMessenger$-CC
+io.flutter.plugin.platform.PlatformView$-CC

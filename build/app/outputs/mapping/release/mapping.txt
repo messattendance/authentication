@@ -1,11 +1,11 @@
 # compiler: R8
 # compiler_version: 2.1.62
 # min_api: 21
-# pg_map_id: b704a4e
+# pg_map_id: 6e28502
 # common_typos_disable
 $$ServiceLoaderMethods -> a:
-    java.util.Iterator $load$18880() -> a
-    java.util.Iterator $load$20024() -> b
+    java.util.Iterator $load$18895() -> a
+    java.util.Iterator $load$20039() -> b
 $r8$backportedMethods$utility$Boolean$1$hashCode -> b:
     int hashCode(boolean) -> a
 $r8$backportedMethods$utility$Long$1$hashCode -> c:
@@ -22346,6 +22346,31 @@ io.flutter.plugins.firebase.firestore.streamhandler.TransactionStreamHandler$OnT
     void onStarted(com.google.firebase.firestore.Transaction) -> a
 io.flutter.plugins.firebase.firestore.utils.ExceptionConverter -> io.flutter.plugins.firebase.firestore.w.a:
     java.util.Map createDetails(java.lang.Exception) -> a
+io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl -> io.flutter.plugins.a.a:
+    android.os.Handler handler -> c
+    android.content.SharedPreferences preferences -> a
+    java.util.concurrent.ExecutorService executor -> b
+    android.os.Handler access$000(io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl) -> a
+    void commitAsync(android.content.SharedPreferences$Editor,io.flutter.plugin.common.MethodChannel$Result) -> b
+    java.util.List decodeList(java.lang.String) -> c
+    java.lang.String encodeList(java.util.List) -> d
+    java.util.Map getAllPrefs() -> e
+    void teardown() -> f
+    void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> g
+io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl$1 -> io.flutter.plugins.a.a$a:
+    io.flutter.plugin.common.MethodChannel$Result val$result -> g
+    android.content.SharedPreferences$Editor val$editor -> f
+    io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl this$0 -> h
+io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl$1$1 -> io.flutter.plugins.a.a$a$a:
+    io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl$1 this$1 -> g
+    boolean val$response -> f
+io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin -> io.flutter.plugins.a.b:
+    io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl handler -> b
+    io.flutter.plugin.common.MethodChannel channel -> a
+    void setupChannel(io.flutter.plugin.common.BinaryMessenger,android.content.Context) -> a
+    void onAttachedToEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> b
+    void teardownChannel() -> c
+    void onDetachedFromEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> e
 io.flutter.util.PathUtils -> f.a.d.a:
     java.lang.String getCacheDirectory(android.content.Context) -> a
     java.lang.String getDataDirPath(android.content.Context) -> b
