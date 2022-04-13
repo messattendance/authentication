@@ -105,6 +105,9 @@ class _LoginState extends State<Login> {
                     width: 200,
                     height: 50,
                     child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 73, 43, 124),
+                        ),
                         onPressed: () async {
                           signin(emailController.text, passwordController.text);
                           final SharedPreferences sharedPreferences =
@@ -119,6 +122,9 @@ class _LoginState extends State<Login> {
                     width: 300,
                     height: 50,
                     child: TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Color.fromARGB(255, 121, 89, 178),
+                        ),
                         onPressed: () {
                           Navigator.push(
                               context,
@@ -131,6 +137,9 @@ class _LoginState extends State<Login> {
                     width: 300,
                     height: 50,
                     child: TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Color.fromARGB(255, 121, 89, 178),
+                        ),
                         onPressed: () {
                           Navigator.push(
                               context,

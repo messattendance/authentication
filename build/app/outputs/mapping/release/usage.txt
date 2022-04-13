@@ -17907,8 +17907,8 @@ com.google.common.math.LongMath:
     static final long MAX_POWER_OF_SQRT2_UNSIGNED
     static final long FLOOR_SQRT_MAX_LONG
     private static final int SIEVE_30
-com.google.firestore.v1.TargetChange$TargetChangeType$TargetChangeTypeVerifier
 com.google.firestore.v1.StructuredQuery$UnaryFilter$OperandTypeCase
+com.google.firestore.v1.TargetChange$TargetChangeType$TargetChangeTypeVerifier
 com.google.common.base.Converter$ReverseConverter
 com.google.common.hash.Funnels$ByteArrayFunnel
 com.google.protobuf.EnumValue$Builder

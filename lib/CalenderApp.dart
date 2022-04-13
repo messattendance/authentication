@@ -22,6 +22,12 @@ class _CalenderAppState extends State<CalenderApp> {
   late List<CleanCalendarEvent> selectedEvent;
   final Map<DateTime, List<CleanCalendarEvent>> events = {};
 
+  void initState() {
+    show(selectedDay);
+    selectedEvent = events[selectedDay] ?? [];
+    super.initState();
+  }
+
   Future<void> show(date) async {
     status = "";
     status1 = "";
@@ -126,11 +132,6 @@ class _CalenderAppState extends State<CalenderApp> {
   }
 
   @override
-  void initState() {
-    selectedEvent = events[selectedDay] ?? [];
-    super.initState();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

@@ -53,18 +53,21 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Container(
-            width: double.infinity,
+            width: 160,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Colors.red, Colors.blue],
               ),
             ),
-            height: 80.0,
+            height: 40.0,
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 73, 43, 124),
+              ),
               onPressed: () async {
                 final SharedPreferences sharedPreferences =
                     await SharedPreferences.getInstance();
-                sharedPreferences.remove('email');
+                await sharedPreferences.remove('email');
                 logout(context);
               },
               child: Text(

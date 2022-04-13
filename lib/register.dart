@@ -159,6 +159,9 @@ class _RegisterState extends State<Register> {
                     width: 300,
                     height: 50,
                     child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 73, 43, 124),
+                        ),
                         onPressed: () {
                           signup(emailController.text, passwordController.text,
                               idnumberController.text);
@@ -169,6 +172,9 @@ class _RegisterState extends State<Register> {
                     width: 300,
                     height: 50,
                     child: TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Color.fromARGB(255, 121, 89, 178),
+                        ),
                         onPressed: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => Login()));
