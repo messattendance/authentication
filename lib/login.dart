@@ -7,7 +7,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:authentication/home.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -19,7 +18,6 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -110,11 +108,6 @@ class _LoginState extends State<Login> {
                         ),
                         onPressed: () async {
                           signin(emailController.text, passwordController.text);
-                          final SharedPreferences sharedPreferences =
-                              await SharedPreferences.getInstance();
-
-                          sharedPreferences.setString(
-                              "email", emailController.text);
                         },
                         child: Text("Login")),
                   ),
@@ -161,7 +154,7 @@ class _LoginState extends State<Login> {
     final _auth = FirebaseAuth.instance;
     await _auth
         .signInWithEmailAndPassword(email: email, password: password)
-        .then((value) => Navigator.pushReplacement(
+        .then((value) => Navigator.push(
             context, MaterialPageRoute(builder: (context) => BottomNav())))
         .catchError((e) {
       Fluttertoast.showToast(msg: e!.message);

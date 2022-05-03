@@ -1,10 +1,14 @@
+import 'package:authentication/mycomplaints.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:authentication/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'dart:io';
 
 class Fedback extends StatefulWidget {
   // const Feedback({Key? key}) : super(key: key);
@@ -15,13 +19,30 @@ class Fedback extends StatefulWidget {
 
 class _FedbackState extends State<Fedback> {
   final TextEditingController complaintController = TextEditingController();
-
+  //final ImgPicker = ImagePicker();
+  //late File _imagefile;
+  var storageref = '';
   final _auth = FirebaseAuth.instance;
   double q1 = 0;
   double q2 = 0;
   double q3 = 0;
   double q4 = 0;
   String complaint = "";
+
+  /*Future getImage() async {
+    final image = await ImgPicker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      _imagefile = File(image!.path);
+    });
+    print('this is');
+    print(image!.path);
+    FirebaseStorage.instance
+        .ref()
+        .child("images/")
+        .child(_imagefile.toString());
+  }*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -280,6 +301,23 @@ class _FedbackState extends State<Fedback> {
                   primary: Color.fromARGB(255, 73, 43, 124),
                 ),
                 child: Text("Submit Complaint")),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(15),
+          child: SizedBox(
+            width: 50,
+            height: 50,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => mycomplaints()));
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(30, 15),
+                  primary: Color.fromARGB(255, 73, 43, 124),
+                ),
+                child: Text("View Complaints")),
           ),
         ),
       ]),

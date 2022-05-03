@@ -5,11 +5,11 @@ import 'package:authentication/feedback.dart';
 import 'package:authentication/homepage.dart';
 import 'package:authentication/login.dart';
 import 'package:authentication/menu.dart';
+import 'package:authentication/mycomplaints.dart';
 import 'package:authentication/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({Key? key}) : super(key: key);
@@ -30,21 +30,17 @@ class _BottomNavState extends State<BottomNav> {
   ];
 
   void initState() {
-    getValidate().whenComplete(() async {
-      Timer(Duration(seconds: 2),
-          () => Get.to(finalemail == null ? Login() : BottomNav()));
-    });
+    // getValidate().then(() {
+    //   Get.to(finalemail == null ? Login() : mycomplaints());
+    //   print(finalemail + "hxbx");
+    // });
+
     super.initState();
   }
 
   Future getValidate() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-
-    String? obtainedemail = sharedPreferences.getString('email');
-    setState(() {
-      finalemail = obtainedemail!;
-    });
+    Get.to(finalemail == null ? Login() : mycomplaints());
+    print(finalemail + "hxbx");
     print(finalemail);
   }
 

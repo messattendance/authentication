@@ -1,4 +1,4 @@
-#Mon Apr 11 14:01:05 IST 2022
-base.0=C\:\\Users\\DEEPAK KUMAR\\Documents\\authentication\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+#Mon May 02 10:22:25 IST 2022
+base.0=C\:\\Users\\devis\\OneDrive\\Desktop\\authentication\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

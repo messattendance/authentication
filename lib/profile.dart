@@ -94,7 +94,7 @@ void logout(BuildContext context) async {
   final _auth = FirebaseAuth.instance;
   await _auth
       .signOut()
-      .then((value) => Navigator.push(
+      .then((value) => Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Login())))
       .catchError((e) {
     Fluttertoast.showToast(msg: e!.message);

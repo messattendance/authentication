@@ -1,4 +1,5 @@
 import 'package:authentication/bottomnav.dart';
+import 'package:authentication/mycomplaints.dart';
 import 'package:authentication/register.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:authentication/login.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: BottomNav(),
+      home: Login(),
     );
   }
 }
