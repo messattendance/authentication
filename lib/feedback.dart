@@ -1,12 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:authentication/model/user_model.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
 
 class Fedback extends StatefulWidget {
+  const Fedback({Key? key}) : super(key: key);
+
   // const Feedback({Key? key}) : super(key: key);
 
   @override
@@ -14,37 +20,52 @@ class Fedback extends StatefulWidget {
 }
 
 class _FedbackState extends State<Fedback> {
+  late File _imageFile;
+  late String _imageUrl;
   final TextEditingController complaintController = TextEditingController();
-
   final _auth = FirebaseAuth.instance;
+
   double q1 = 0;
   double q2 = 0;
   double q3 = 0;
   double q4 = 0;
   String complaint = "";
+
+  Future uploadImageToFirebase() async {
+    String fileName = basename(_imageFile.path);
+    Reference firebaseStorageRef =
+        FirebaseStorage.instance.ref().child('images/$fileName  ');
+    UploadTask uploadTask = firebaseStorageRef.putFile(_imageFile);
+    final snapshot = await uploadTask.whenComplete(() => {});
+    final urlDownload = await snapshot.ref.getDownloadURL();
+    setState(() {
+      _imageUrl = urlDownload;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Feedback',
+        title: const Text('Feedback',
             style: TextStyle(
               fontFamily: "poppins",
               fontSize: 18,
               fontWeight: FontWeight.w400,
             )),
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromRGBO(48, 21, 81, 1),
+        backgroundColor: const Color.fromRGBO(48, 21, 81, 1),
       ),
       body: ListView(children: [
         Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Container(
             alignment: Alignment.center,
             height: 180,
             width: 377,
             child: Column(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
                     " Snacks, Tea, Coffee and Breakfast",
@@ -61,8 +82,8 @@ class _FedbackState extends State<Fedback> {
                   direction: Axis.horizontal,
                   allowHalfRating: false,
                   itemCount: 5,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                  itemBuilder: (context, _) => Icon(
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
@@ -73,7 +94,7 @@ class _FedbackState extends State<Fedback> {
                 ),
               ],
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Color.fromRGBO(73, 43, 124, 0.08),
                 border: Border(
                     left: BorderSide(
@@ -81,14 +102,14 @@ class _FedbackState extends State<Fedback> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Container(
             alignment: Alignment.center,
             height: 180,
             width: 377,
             child: Column(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
                     " Snacks, Tea, Coffee and Breakfast",
@@ -105,8 +126,8 @@ class _FedbackState extends State<Fedback> {
                   direction: Axis.horizontal,
                   allowHalfRating: false,
                   itemCount: 5,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                  itemBuilder: (context, _) => Icon(
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
@@ -117,7 +138,7 @@ class _FedbackState extends State<Fedback> {
                 ),
               ],
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Color.fromRGBO(73, 43, 124, 0.08),
                 border: Border(
                     left: BorderSide(
@@ -125,14 +146,14 @@ class _FedbackState extends State<Fedback> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Container(
             alignment: Alignment.center,
             height: 180,
             width: 377,
             child: Column(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
                     "Quantity of food as per menu i.e., no. of grams/ actual consumption whichever is higher? ",
@@ -149,8 +170,8 @@ class _FedbackState extends State<Fedback> {
                   direction: Axis.horizontal,
                   allowHalfRating: false,
                   itemCount: 5,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                  itemBuilder: (context, _) => Icon(
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
@@ -161,7 +182,7 @@ class _FedbackState extends State<Fedback> {
                 ),
               ],
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Color.fromRGBO(73, 43, 124, 0.08),
                 border: Border(
                     left: BorderSide(
@@ -169,14 +190,14 @@ class _FedbackState extends State<Fedback> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Container(
             alignment: Alignment.center,
             height: 180,
             width: 377,
             child: Column(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
                     " Snacks, Tea, Coffee and Breakfast",
@@ -193,8 +214,8 @@ class _FedbackState extends State<Fedback> {
                   direction: Axis.horizontal,
                   allowHalfRating: false,
                   itemCount: 5,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                  itemBuilder: (context, _) => Icon(
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
@@ -205,7 +226,7 @@ class _FedbackState extends State<Fedback> {
                 ),
               ],
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Color.fromRGBO(73, 43, 124, 0.08),
                 border: Border(
                     left: BorderSide(
@@ -213,7 +234,7 @@ class _FedbackState extends State<Fedback> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: SizedBox(
             width: 50,
             height: 50,
@@ -222,13 +243,13 @@ class _FedbackState extends State<Fedback> {
                   pushfeedback();
                 },
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(30, 15),
-                  primary: Color.fromARGB(255, 73, 43, 124),
+                  fixedSize: const Size(30, 15),
+                  primary: const Color.fromARGB(255, 73, 43, 124),
                 ),
-                child: Text("Submit")),
+                child: const Text("Submit")),
           ),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(15),
           child: Text(
             " Complaints Block",
@@ -266,20 +287,41 @@ class _FedbackState extends State<Fedback> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.symmetric(
+            vertical: 0,
+            horizontal: 20,
+          ),
+          child: SizedBox(
+            width: 40,
+            height: 40,
+            child: TextButton.icon(
+                onPressed: () async {
+                  final imageFile = await ImagePicker()
+                      .pickImage(source: ImageSource.camera, maxWidth: 600);
+                  setState(() {
+                    _imageFile = File(imageFile!.path);
+                  });
+                },
+                icon: const Icon(Icons.camera),
+                label: const Text('Take a picture')),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(15),
           child: SizedBox(
             width: 50,
             height: 50,
             child: ElevatedButton(
-                onPressed: () {
-                  pushComplaint(complaintController.text);
-                  complaintController.text = "";
-                },
-                style: ElevatedButton.styleFrom(
-                  fixedSize: Size(30, 15),
-                  primary: Color.fromARGB(255, 73, 43, 124),
-                ),
-                child: Text("Submit Complaint")),
+              onPressed: () {
+                pushComplaint(complaintController.text);
+                complaintController.text = "";
+              },
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(30, 15),
+                primary: const Color.fromARGB(255, 73, 43, 124),
+              ),
+              child: const Text("Submit Complaint"),
+            ),
           ),
         ),
       ]),
@@ -290,8 +332,8 @@ class _FedbackState extends State<Fedback> {
     if (q1 == 0 || q2 == 0 || q3 == 0 || q4 == 0) {
       Fluttertoast.showToast(msg: "Required Feedback for every Question");
     } else {
-      var now = new DateTime.now();
-      var formatter = new DateFormat('dd-MM-yyyy');
+      var now = DateTime.now();
+      var formatter = DateFormat('dd-MM-yyyy');
       String? idnumber = _auth.currentUser?.email?.substring(0, 7);
       String todaydate = formatter.format(now);
       FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -308,12 +350,13 @@ class _FedbackState extends State<Fedback> {
     if (complaint.length == 0) {
       Fluttertoast.showToast(msg: "Write Complaint");
     } else {
-      var now = new DateTime.now();
-      var formatter = new DateFormat('dd-MM-yyyy');
+      var now = DateTime.now();
+      var formatter = DateFormat('dd-MM-yyyy');
       String? idnumber = _auth.currentUser?.email?.substring(0, 7);
       String todaydate = formatter.format(now);
       FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
       User? user = _auth.currentUser;
+      await uploadImageToFirebase();
 
       await firebaseFirestore
           .collection("complaints")
@@ -321,7 +364,8 @@ class _FedbackState extends State<Fedback> {
           .set({
         'idnumber': idnumber,
         'complaint': complaint,
-        'status': "initiated"
+        'status': "initiated",
+        'imgUrl': _imageUrl
       });
     }
   }
